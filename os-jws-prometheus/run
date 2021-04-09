@@ -1,0 +1,14 @@
+#!/bin/sh
+# Prometheus JMX for JWS
+set -e
+
+ADDED_DIR="$SCRIPT_DIR/added"
+cp -p "$ADDED_DIR/prometheus.yaml" "$JWS_HOME/conf/prometheus.yaml"
+
+# install prometheus-jmx-exporter
+dnf install -y prometheus-jmx-exporter
+dnf clean all
+
+# copy the jar like in tomcat
+mkdir /opt/prometheus
+cp -p /usr/share/java/prometheus-jmx-exporter/jmx_prometheus_javaagent.jar /opt/prometheus
