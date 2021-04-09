@@ -4,6 +4,4 @@ version: '1.0'
 description: Prometheus for JWS
 execute:
 - script: run
-  user: '185'
-
 
