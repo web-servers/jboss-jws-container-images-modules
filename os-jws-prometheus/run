@@ -2,6 +2,7 @@
 # Prometheus JMX for JWS
 set -e
 
+SCRIPT_DIR=$(dirname $0)
 ADDED_DIR="$SCRIPT_DIR/added"
 
 # install prometheus-jmx-exporter
