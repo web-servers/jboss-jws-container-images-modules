@@ -29,12 +29,12 @@ function configure_https() {
              SSLCertificateFile=\"${JWS_HTTPS_CERTIFICATE_DIR}/${JWS_HTTPS_CERTIFICATE}\" \
              SSLCertificateKeyFile=\"${JWS_HTTPS_CERTIFICATE_DIR}/${JWS_HTTPS_CERTIFICATE_KEY}\" \
              ${password}  \
-             SSLVerifyClient=\"optional\" SSLProtocol=\"TLSv1+TLSv1.1+TLSv1.2\""
-    
+             SSLVerifyClient=\"optional_no_ca\" SSLProtocol=\"TLSv1.3+TLSv1.2\""
+
       if [ -n "$JWS_SERVER_NAME" ]; then
         https="$https server=\"${JWS_SERVER_NAME}\""
       fi
- 
+
       https="$https />"
 
   elif [ -n "${JWS_HTTPS_CERTIFICATE_DIR}" -o -n "${JWS_HTTPS_CERTIFICATE}" -o -n "${JWS_HTTPS_CERTIFICATE_KEY}" ] ; then
