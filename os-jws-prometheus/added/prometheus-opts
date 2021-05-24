@@ -19,9 +19,6 @@
 source "$JBOSS_CONTAINER_UTIL_LOGGING_MODULE/logging.sh"
 
 # echo's a complete -javaagent option based on the above variables.
-function get_prometheus_opts() {
-    if [ "${AB_PROMETHEUS_ENABLE^^}" = "TRUE" ]; then
-        echo "-javaagent:/usr/share/java/prometheus-jmx-exporter/jmx_prometheus_javaagent.jar=${AB_PROMETHEUS_JMX_EXPORTER_PORT:-9404}:${AB_PROMETHEUS_JMX_EXPORTER_CONFIG:-/opt/jboss/container/prometheus/etc/jws-jmx-exporter-config.yaml}"
-    fi
-    echo ""
-}
+if [ "${AB_PROMETHEUS_ENABLE^^}" = "TRUE" ]; then
+    echo "-javaagent:/usr/share/java/prometheus-jmx-exporter/jmx_prometheus_javaagent.jar=${AB_PROMETHEUS_JMX_EXPORTER_PORT:-9404}:${AB_PROMETHEUS_JMX_EXPORTER_CONFIG:-/opt/jboss/container/prometheus/etc/jws-jmx-exporter-config.yaml}"
+fi

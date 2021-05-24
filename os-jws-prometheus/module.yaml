@@ -15,10 +15,10 @@ envs:
   value: /opt/jboss/container/prometheus
 - name: AB_PROMETHEUS_ENABLE
   description: Enable the use of the Prometheus agent
-  example: true
+  value: true
 - name: AB_PROMETHEUS_JMX_EXPORTER_PORT
   description: Port to use for the Prometheus JMX Exporter.
-  example: 9404
+  value: 9404
 - name: AB_PROMETHEUS_JMX_EXPORTER_CONFIG
   value: /opt/jboss/container/prometheus/etc/jws-jmx-exporter-config.yaml
   description: Path to configuration to use for the Prometheus JWS JMX Exporter
