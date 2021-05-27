@@ -1,0 +1,7 @@
+#!/bin/sh
+# Hello World ROOT.war
+SCRIPT_DIR="$(dirname $0)"
+ADDED_DIR="$SCRIPT_DIR/added"
+
+(cd $ADDED_DIR; jar cvf ROOT.war *)
+cp -p cp -p "$ADDED_DIR/ROOT.war "/deployments"
