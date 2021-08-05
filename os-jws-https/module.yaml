@@ -1,6 +1,6 @@
 schema_version: 1
 name: os-jws-https
-version: '2.0'
+version: '3.0'
 description: Legacy os-jws-https script package.
 execute:
 - script: run

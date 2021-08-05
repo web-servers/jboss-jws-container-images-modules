@@ -1,6 +1,6 @@
 schema_version: 1
 name: os-jws-prometheus
-version: '2.0'
+version: '3.0'
 description: Prometheus for JWS
 execute:
 - script: run
