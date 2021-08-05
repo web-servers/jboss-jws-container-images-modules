@@ -1,6 +1,6 @@
 schema_version: 1
 name: os-jws-rm-root
-version: '2.0'
+version: '3.0'
 description: Legacy os-jws-rm-root script package.
 execute:
 - script: run

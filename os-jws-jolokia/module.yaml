@@ -1,6 +1,6 @@
 schema_version: 1
 name: os-jws-jolokia
-version: '2.0'
+version: '3.0'
 description: Legacy os-jws-jolokia script package.
 execute:
 - script: run
