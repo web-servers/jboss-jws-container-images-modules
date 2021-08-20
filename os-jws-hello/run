@@ -3,5 +3,6 @@
 SCRIPT_DIR="$(dirname $0)"
 ADDED_DIR="$SCRIPT_DIR/added"
 
-(cd $ADDED_DIR; jar cvf ROOT.war *)
-cp -p cp -p "$ADDED_DIR/ROOT.war "/deployments"
+# https://issues.redhat.com/browse/JWS-1830
+cd $ADDED_DIR; jar cvf ROOT.war *
+cp -p "$ADDED_DIR/ROOT.war" "/deployments"
