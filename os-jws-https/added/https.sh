@@ -3,6 +3,15 @@
 
 source $JWS_HOME/bin/launch/logging.sh
 
+
+
+
+
+
+
+
+
+
 function prepareEnv() {
   unset JWS_HTTPS_CERTIFICATE_DIR
   unset JWS_HTTPS_CERTIFICATE
