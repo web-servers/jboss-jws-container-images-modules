@@ -17,7 +17,7 @@ function configure() {
 
 function configure_https() {
   https="<!-- No HTTPS configuration discovered -->"
-  if [ -n "${JWS_HTTPS_CERTIFICATE}" ] ; then
+  if [ -n "${JWS_HTTPS_CACERTIFICATE}" ] ; then
   https="\
   <Connector port=\"8443\" protocol=\"HTTP/1.1\" \
   maxThreads=\"150\" SSLEnabled=\"true\"> \
