@@ -22,6 +22,6 @@ function configure_https() {
     disableUploadTimeout="true" enableLookups="false" maxThreads="25"
     port="8443" keystoreFile="${JWS_HTTPS_CERTIFICATE_DIR}/.keystore" keystorePass="vmouriki"
     protocol="org.apache.coyote.http11.Http11NioProtocol" scheme="https"
-    secure="true" sslProtocol="TLS" />
+    secure="true" sslProtocol="TLS" />"
   sed -i "s|### HTTPS_CONNECTOR ###|${https}|" $JWS_HOME/conf/server.xml
 }
