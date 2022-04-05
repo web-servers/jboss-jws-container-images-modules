@@ -37,6 +37,6 @@ ${password} \
 certificateKeyFile=\"${JWS_HTTPS_CERTIFICATE_DIR}/${JWS_HTTPS_CERTIFICATE_KEY}\"/> \
 </SSLHostConfig> \
 </Connector>"
-
+fi
   sed -i "s|### HTTPS_CONNECTOR ###|${https}|" $JWS_HOME/conf/server.xml
 }
