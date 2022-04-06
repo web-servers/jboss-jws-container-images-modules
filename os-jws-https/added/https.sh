@@ -16,27 +16,11 @@ function configure() {
 }
 
 function configure_https() {
-https="<!-- No HTTPS configuration discovered -->"
-if [ -n "${JWS_HTTPS_CACERTIFICATE}" ] ; then
 https="\
-<Connector port=\"8443\" protocol=\"HTTP/1.1\" \
-maxThreads=\"150\" SSLEnabled=\"true\"> \
-<SSLHostConfig caCertificateFile=\"${JWS_HTTPS_CERTIFICATE_DIR}/${JWS_HTTPS_CACERTIFICATE}\" certificateVerification=\"required\"> \
-<Certificate certificateFile=\"${JWS_HTTPS_CERTIFICATE_DIR}/${JWS_HTTPS_CERTIFICATE}\" \
-${password} \
-certificateKeyFile=\"${JWS_HTTPS_CERTIFICATE_DIR}/${JWS_HTTPS_CERTIFICATE_KEY}\"/> \
-</SSLHostConfig> \
-</Connector>"
-else
-https="\
-<Connector port=\"8443\" protocol=\"HTTP/1.1\" \
-maxThreads=\"150\" SSLEnabled=\"true\"> \
-<SSLHostConfig> \
-<Certificate certificateFile=\"${JWS_HTTPS_CERTIFICATE_DIR}/${JWS_HTTPS_CERTIFICATE}\" \
-${password} \
-certificateKeyFile=\"${JWS_HTTPS_CERTIFICATE_DIR}/${JWS_HTTPS_CERTIFICATE_KEY}\"/> \
-</SSLHostConfig> \
-</Connector>"
-fi
+<Connector SSLEnabled="true" acceptCount="100" clientAuth="false" \
+    disableUploadTimeout="true" enableLookups="false" maxThreads="25" \
+    port="8443" keystoreFile="${JWS_HTTPS_CERTIFICATE_DIR}/.keystore" keystorePass="vmouriki" \
+    protocol="org.apache.coyote.http11.Http11NioProtocol" scheme="https" \
+    secure="true" sslProtocol="TLS" />"
   sed -i "s|### HTTPS_CONNECTOR ###|${https}|" $JWS_HOME/conf/server.xml
 }
