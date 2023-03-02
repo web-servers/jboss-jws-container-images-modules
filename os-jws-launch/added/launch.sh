@@ -22,6 +22,7 @@ CONFIGURE_SCRIPTS=(
   $JWS_HOME/bin/launch/https.sh
   $JWS_HOME/bin/launch/realm.sh
   $JWS_HOME/bin/launch/catalina.sh
+  $JWS_HOME/bin/launch/cert_configuration.sh
   /opt/run-java/proxy-options
 )
 
