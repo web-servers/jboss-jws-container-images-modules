@@ -22,14 +22,20 @@ function configure_https() {
       if [ -n "${JWS_HTTPS_CERTIFICATE_PASSWORD}" ] ; then
           password=" SSLPassword=\"${JWS_HTTPS_CERTIFICATE_PASSWORD}\" "
       fi
+
+      caCert=""
+      if [ -n "${JWS_HTTPS_CACERTIFICATE}" ]; then 
+        caCert=" SSLCACertificateFile=\"${JWS_HTTPS_CERTIFICATE_DIR}/${JWS_HTTPS_CACERTIFICATE}\" "
+      fi
       https="<Connector \
              protocol=\"org.apache.coyote.http11.Http11AprProtocol\" \
              port=\"8443\" maxThreads=\"200\" \
              scheme=\"https\" secure=\"true\" SSLEnabled=\"true\" \
              SSLCertificateFile=\"${JWS_HTTPS_CERTIFICATE_DIR}/${JWS_HTTPS_CERTIFICATE}\" \
              SSLCertificateKeyFile=\"${JWS_HTTPS_CERTIFICATE_DIR}/${JWS_HTTPS_CERTIFICATE_KEY}\" \
+             ${caCert}  \
              ${password}  \
-             SSLVerifyClient=\"optional_no_ca\" SSLProtocol=\"TLSv1.3+TLSv1.2\""
+             SSLVerifyClient=\"optional\" SSLProtocol=\"TLSv1.3+TLSv1.2\""
 
       if [ -n "$JWS_SERVER_NAME" ]; then
         https="$https server=\"${JWS_SERVER_NAME}\""
