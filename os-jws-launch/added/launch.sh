@@ -14,7 +14,6 @@ function escape_catalina_opts() {
 
 CONFIGURE_SCRIPTS=(
   $JWS_HOME/bin/launch/configure_extensions.sh
-  $JWS_HOME/bin/launch/passwd.sh
   $JWS_HOME/bin/launch/shutdown.sh
   $JWS_HOME/bin/launch/valve.sh
   $JWS_HOME/bin/launch/resource.sh
@@ -22,7 +21,6 @@ CONFIGURE_SCRIPTS=(
   $JWS_HOME/bin/launch/https.sh
   $JWS_HOME/bin/launch/realm.sh
   $JWS_HOME/bin/launch/catalina.sh
-  $JWS_HOME/bin/launch/cert_configuration.sh
   /opt/run-java/proxy-options
 )
 
